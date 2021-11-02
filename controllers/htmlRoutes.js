@@ -1,19 +1,19 @@
 const router = require('express').Router()
-const { Project, User } = require('../models')
+const { Post, User } = require('../models')
 
 router.get('/', async (req, res) => {
     try{
-        const ProjData = await Project.findAll({
+        const PostData = await Post.findAll({
             include: [{
                 model: User,
                 attributes: ['name']
             }]
         })
 
-        const proj = ProjData.map((project) => project.get({ plain:true }))
+        const post = PostData.map((post) => post.get({ plain:true }))
 
         res.render('homepage', {
-            proj, logged_in: req.session.logged_in
+            post, logged_in: req.session.logged_in
         })
     }
     catch (err){
@@ -28,7 +28,7 @@ router.get('/profile', async (req, res) => {
     try{
         const userInfo = await User.findByPk(req.session.user_id, {
             attributes: {exclude: ['password']},
-            include: [Project]
+            include: [Post]
         })
         const user = await userInfo.get({ plain: true })
 
@@ -41,18 +41,18 @@ router.get('/profile', async (req, res) => {
     }
 })
 
-router.get('/project/:id', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
     try{
-        const projData = await Project.findByPk(req.params.id, {
+        const projData = await Post.findByPk(req.params.id, {
             include: [
                 {model:User,
                 attributes: ['name']}
             ]
         })
-        const project = projData.get({ plain: true })
+        const post = postData.get({ plain: true })
 
-        res.render('project', {
-            ...project, logged_in: req.session.logged_in
+        res.render('post', {
+            ...post, logged_in: req.session.logged_in
         });
     } catch (err) {
         console.log(err);
