@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Why mvc is so important",
+    "content": "Mvc allows users to maintain a true seperation of concerns,devising their code between the Model layer for data, the View layer for design, and the controller layer for application logic."
+  },
+  {
+    "name": "Idk",
+    "content": "I am typing some random stuff in this box becuase i need to fill up space, this is dumb i should just use lorem ipsum"
+  },
+  {
+    "name": "blah blah blah",
+    "content": "More random typing to fill up space my brain is running out of words to type so im gonna start thinking of random words apple tree banana pear i guess im just naming fruits lol"
+  }
+]

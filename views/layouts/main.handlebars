@@ -1,0 +1,32 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <header>
+      </header>
+      <nav>
+          <a href='/'>Home</a>
+        {{#if logged_in}}
+          <a href='/profile'>Profile</a>
+          |
+          <button id='logout'>logout</button>
+        {{else}}
+          <a href='/login'>login</a>
+        {{/if}}
+      </nav>
+        <h1><a href='/'>The Tech Blog</a></h1>
+    </div>
+    {{{body}}}
+
+    {{#if logged_in}}
+      <script src='/js/logout.js'></script>
+    {{else}}
+      <script src='/js/login.js'></script>
+    {{/if}}
+  </body>
+</html>
