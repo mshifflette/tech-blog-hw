@@ -1,10 +1,6 @@
-{{#each proj as |project|}}
+{{#each post as |post|}}
+<h1>{{post.name}}</h1>
   <div>
-    <a href='/project/{{project.id}}'>{{project.name}}</a>
-    <span>{{project.user.name}}
-      We need
-      {{project.needed_funding}}
-      for our project!</span>
-    <p>{{project.description}}</p>
+    {{post.content}}
   </div>
 {{/each}}
